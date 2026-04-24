@@ -21,6 +21,18 @@ Baugenehmigungs-KI automatisiert die Vorprüfung von Bauanträgen nach deutschem
 - 🐳 **Docker-Ready** — Ein Befehl zum Starten (app + Ollama)
 - 🏛️ **Behörden-fokussiert** — Entwickelt für deutsche Bauämter
 
+
+## 📸 Screenshots
+
+### Dashboard — Übersicht aller Bauanträge
+![Dashboard](screenshots/dashboard.png)
+
+### Antrag prüfen — KI-gestützte Bauantragsanalyse
+![Antrag prüfen](screenshots/antrag_pruefen.png)
+
+### Einstellungen — KI-Backend-Konfiguration
+![Einstellungen](screenshots/einstellungen.png)
+
 ## 🚀 Quickstart
 
 ### Mit Docker (empfohlen)
