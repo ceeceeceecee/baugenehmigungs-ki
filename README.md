@@ -95,6 +95,38 @@ smtp:
   use_tls: true
 ```
 
+## 🚀 Schnellstart
+
+### Voraussetzungen
+
+| Komponente | Version | Zweck |
+|---|---|---|
+| Docker | 20.10+ | Container-Deployment |
+| Docker Compose | 2.0+ | Service-Orchestrierung |
+| Ollama | neueste | Lokale KI-Verarbeitung |
+
+### Installation
+
+```bash
+git clone https://github.com/ceeceeceecee/baugenehmigungs-ki.git
+cd baugenehmigungs-ki
+
+cp config/settings.example.yaml config/settings.yaml
+docker compose up -d
+
+# Empfohlenes Modell herunterladen
+docker compose run ollama pull llama3.1
+```
+
+Anschließend die Anwendung unter `http://localhost:8501` aufrufen.
+
+### Erste Schritte
+
+1. **Bauantrag hochladen** — PDF oder Bild per Drag & Drop
+2. **KI-Analyse** — Automatische Prüfung nach BauGB und Bundesländer-BauO
+3. **Ergebnis prüfen** — Übereinstimmungsscore und Detailbericht
+4. **Bericht exportieren** — Als PDF speichern oder archivieren
+
 ## 📁 Projektstruktur
 
 ```
