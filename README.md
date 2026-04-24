@@ -1,7 +1,7 @@
 # 🏗️ Baugenehmigungs-KI
 
 [![DSGVO-konform](https://img.shields.io/badge/DSGVO-konform-success)](https://gdpr.eu/)
-[![Self-Hosted](https://img.shields.io/badge/Self_Hosted-✓-blue)]()
+[![Self-Hosted](https://img.shields.io/badge/Deployment-Self_Hosted-blue)]()
 [![Docker](https://img.shields.io/badge/Docker-Ready-2496ED?logo=docker)]()
 [![Python 3.11+](https://img.shields.io/badge/Python-3.11+-3776AB?logo=python)]()
 [![Ollama](https://img.shields.io/badge/Ollama-DSGVO-konform-000?logo=ollama)]()
