@@ -131,6 +131,10 @@ baugenehmigungs-ki/
 | MBO (Musterbauordnung) | ✅ |
 | Bebauungspläne | 🔜 |
 
+
+## 👤 Autor
+
+**Cela** — Freelancer für digitale Verwaltungslösungen
 ## 📄 Lizenz
 
 [MIT](LICENSE) — Frei nutzbar für Behörden und Entwickler.
