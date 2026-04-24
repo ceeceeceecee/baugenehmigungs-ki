@@ -1,0 +1,28 @@
+# Baugenehmigungs-KI — Konfigurations-Vorlage
+# Kopieren nach config/settings.yaml und anpassen.
+
+ollama:
+  url: "http://localhost:11434"
+  model: "llama3"
+  temperature: 0.2  # Niedrig = präziser, Hoch = kreativer
+
+database:
+  path: "data/baugenehmigungen.db"
+
+bauvorschriften:
+  bundesland: "NW"  # NW, BY, HE, BW, SN, NI, SH, HH, HB, RP, SL, BE, BB, MV, ST, TH
+  bauo_version: "2023"
+  additional_docs: []  # Zusätzliche Dokumente (Pfade)
+
+smtp:
+  host: "smtp.example.de"
+  port: 587
+  username: ""
+  password: ""
+  sender: "bauamt@example.de"
+  use_tls: true
+
+app:
+  title: "Baugenehmigungs-KI"
+  language: "de"
+  max_upload_mb: 50
