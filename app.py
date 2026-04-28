@@ -4,6 +4,11 @@ import streamlit as st
 import os
 import sys
 
+# -- Unified Theme System --
+import sys, os as _theme_os
+sys.path.insert(0, _theme_os.path.dirname(_theme_os.path.abspath(__file__)))
+from theme import init_theme, theme_toggle_sidebar, app_footer
+
 # Projekt-Pfad zum Python-Pfad hinzufügen
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
@@ -40,6 +45,8 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded",
 )
+
+init_theme()
 
 PAGES = {
     "📊 Dashboard": "dashboard",
@@ -275,3 +282,9 @@ elif PAGES[page] == "einstellungen":
     st.text_input("SMTP Port", value="587", key="smtp_port")
     st.text_input("Absender", key="smtp_sender")
     st.toggle("TLS verwenden", value=True, key="smtp_tls")
+
+# -- Theme Toggle --
+theme_toggle_sidebar()
+
+# -- Footer --
+app_footer()
