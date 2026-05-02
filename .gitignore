@@ -1,39 +1,7 @@
-# Python
-__pycache__/
-*.py[cod]
-*$py.class
-*.egg-info/
-dist/
-build/
-.eggs/
-*.egg
-venv/
-.venv/
-env/
-
-# Datenbank & Daten
+database/
+processor/
+config/
 data/
-*.db
-*.sqlite3
-
-# Konfiguration
-config/settings.yaml
-
-# Umgebungsvariablen
-.env
-.env.local
-
-# IDE
-.idea/
-.vscode/
-*.swp
-*.swo
-*~
-
-# OS
+__pycache__/
+*.pyc
 .DS_Store
-Thumbs.db
-
-# Reports (generiert)
-reports/
-*.pdf
