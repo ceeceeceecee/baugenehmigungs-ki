@@ -1,0 +1,20 @@
+ollama_url: "http://localhost:11434"
+ollama_model: "llama3.1:8b"
+ollama_fallback: "mistral:7b"
+ollama_temperature: 0.2
+ollama_max_tokens: 4096
+sprache: "Deutsch"
+
+behoerde: "Stadtverwaltung Musterhausen"
+bauamt: "Bauordnungsamt"
+bauo: "ThürBO (Thüringen)"
+aktenzeichen_format: "BA-{JAHR}-{NUMMER}"
+standard_frist: "3 Monate"
+
+datenspeicherung: "Lokal (kein Cloud-Upload)"
+loeschfrist: "12 Monate automatisch"
+verschluesselung: "AES-256 (Ruhezustand)"
+protokollierung: "Aktiv (Audit-Trail)"
+
+database:
+  path: "data/baugenehmigungen.db"
