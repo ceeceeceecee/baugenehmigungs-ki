@@ -1,65 +1,36 @@
-# Baugenehmigungs Ki
+# 🏗️ Baugenehmigungs-KI
 
-<p align="center">
-</p>
-
-![Python](https://img.shields.io/badge/Python-3.11+-3776AB?logo=python) ![DSGVO](https://img.shields.io/badge/DSGVO-Konform-brightgreen) ![Self-Hosted](https://img.shields.io/badge/Self-Hosted-blue) ![Docker](https://img.shields.io/badge/Docker-Ready-2496ED?logo=docker) ![Ollama](https://img.shields.io/badge/Ollama-KI-Backend-000?logo=ollama)
-
-> KI-gestützte Bauantragsprüfung für Bauämter (DSGVO-konform)
-
-## Overview
-
-Streamlit-Anwendung zur automatischen Prüfung von Bauanträgen. Nutzt Ollama für lokale KI-Verarbeitung, DSGVO-konform und self-hosted. Erkennt fehlende Unterlagen, prüft Formalia und erstellt Gutachten.
+DSGVO-konforme Bauantragsprüfung mit lokaler KI (Ollama).
 
 ## Features
 
-- Automatische Bauantragsprüfung
-- Fehlende-Unterlagen-Erkennung
-- Formale Prüfung der Antragsunterlagen
-- KI-gestütztes Gutachten
-- DSGVO-konforme Datenverarbeitung
-- Dashboard mit Statistiken
-
-## Tech Stack
-
-| Tech | Zweck |
-|------|-------|
-| Python 3.11+ | Backend |
-| Streamlit | Web-Interface |
-| Ollama | Lokale KI |
-| SQLite | Datenbank |
-| Docker | Deployment |
+- **Dashboard** — Übersicht aller Bauanträge mit Statistiken und Charts
+- **KI-Prüfung** — Automatische Vorprüfung mit Ollama (Demo-Modus ohne Ollama)
+- **Antragsverwaltung** — Neue Anträge erstellen, Status verwalten
+- **Dokumenten-Check** — Unterlagen-Checkliste pro Antrag
+- **Einstellungen** — Ollama-Konfig, Bauamt-Einstellungen, DSGVO
 
 ## Quick Start
 
 ```bash
-pip install -r requirements.txt
+pip install streamlit plotly pandas requests
 streamlit run app.py
 ```
 
-## Screenshots
+Ohne Ollama läuft die App im Demo-Modus mit simulierter KI-Analyse.
 
-**Dashboard mit Antragsübersicht**
+## Mit Ollama
 
-<img src="screenshots/dashboard.png" alt="Dashboard mit Antragsübersicht" width="800">
+```bash
+# Ollama installieren & Modell laden
+ollama pull llama3.1:8b
 
-**Bauantrags-Prüfung mit KI-Unterstützung**
+# In den Einstellungen Ollama-URL konfigurieren (default: http://localhost:11434)
+```
 
-<img src="screenshots/antrag_pruefen.png" alt="Bauantrags-Prüfung mit KI-Unterstützung" width="800">
+## Tech Stack
 
-**Konfiguration und Einstellungen**
-
-<img src="screenshots/einstellungen.png" alt="Konfiguration und Einstellungen" width="800">
-
----
-
-## Contributing
-
-Beiträge sind willkommen! Bitte erstelle einen Issue oder Pull Request.
-
-## License
-
-MIT License — siehe [LICENSE](LICENSE).
-
-<p align="center">
-</p>
+- **Frontend:** Streamlit + Plotly
+- **Backend:** SQLite (lokal, DSGVO-konform)
+- **KI:** Ollama (lokal, kein Cloud-Upload)
+- **Python:** 3.11+

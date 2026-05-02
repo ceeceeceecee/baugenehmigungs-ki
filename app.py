@@ -141,11 +141,10 @@ if PAGES[page] == "dashboard":
         # Weekly chart
         weekly = db.get_weekly_counts()
         if weekly:
-            weekly.reverse()
             wdf = pd.DataFrame(weekly)
             fig = px.bar(wdf, x="week", y="count",
                         title="Antraege pro Woche",
-                        labels={"week": "Kalenderwoche", "count": "Anzahl"},
+                        labels={"week": "Woche", "count": "Anzahl"},
                         color="count",
                         color_continuous_scale=["#6366f1", "#818cf8"])
             fig.update_layout(showlegend=False)
@@ -246,12 +245,12 @@ elif PAGES[page] == "antrag":
 
                     for field, label in check_fields:
                         check = analyse.get(field, {})
-                        status = check.get("status", "UNBEKANNT")
-                        details = check.get("details", "")
+                        status = check.get("status", "unbekannt")
+                        details = check.get("text", check.get("details", ""))
 
-                        if status in ("OK", "KONSISTENT", "EINGEHALTEN", "PRÜFBAR", "KEIN_EINTRAG", "UNBEDENKLICH"):
+                        if status == "ok":
                             icon = "\u2705"
-                        elif status in ("ANMERKUNG", "NICHT_EINGEHALTEN", "ÜBERSCHRITTEN", "PRÜFUNG_ERFORDERLICH", "WIDERSPRUCH"):
+                        elif status in ("warnung", "fehler"):
                             icon = "\u26a0\ufe0f"
                         else:
                             icon = "\u2753"
@@ -263,15 +262,17 @@ elif PAGES[page] == "antrag":
                     st.subheader("\U0001f4a1 KI-Empfehlung")
                     empfehlung = analyse.get("empfehlung", "Keine Empfehlung verfuegbar.")
                     bewertung = analyse.get("gesamtbewertung", "")
+                    zusammenfassung = analyse.get("zusammenfassung", "")
 
                     color_map = {
-                        "GENEHMIGUNGSFAEHIG": "#22c55e",
-                        "BEDINGT": "#f59e0b",
-                        "NICHT_GENEHMIGUNGSFAEHIG": "#ef4444",
+                        "genehmigung": "#22c55e",
+                        "nachforderung": "#f59e0b",
+                        "ablehnung": "#ef4444",
                     }
-                    c = color_map.get(bewertung, "#6b7280")
-                    st.markdown(f"<span style='color:{c};font-weight:bold'>Bewertung: {bewertung}</span>", unsafe_allow_html=True)
-                    st.markdown(empfehlung)
+                    c = color_map.get(str(empfehlung).lower(), "#6b7280")
+                    st.markdown(f"<span style='color:{c};font-weight:bold'>Bewertung: {bewertung}/10 \u2014 Empfehlung: {empfehlung}</span>", unsafe_allow_html=True)
+                    if zusammenfassung:
+                        st.markdown(zusammenfassung)
 
                     # Action buttons
                     st.divider()

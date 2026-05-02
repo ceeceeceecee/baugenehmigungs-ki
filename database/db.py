@@ -160,7 +160,7 @@ class DatabaseManager:
                 (aktenzeichen, antragsteller, projekt, art, adresse, bundesland,
                  beschreibung, status, unterlagen_json, eingangsdatum, aktualisiert)
                 VALUES (?, ?, ?, ?, ?, ?, ?, ?, '{}', ?, ?)
-            """, (aktenzeichen, antragsteller, projekt, art, addr, bundesland,
+            """, (aktenzeichen, antragsteller, projekt, art, adresse, bundesland,
                   beschreibung, status, now, now))
             self.conn.commit()
             return True
@@ -214,5 +214,5 @@ class DatabaseManager:
 
     def get_weekly_counts(self):
         c = self.conn.cursor()
-        c.execute("SELECT strftime('%%Y-W%%W', eingangsdatum) as week, COUNT(*) as count FROM antraege GROUP BY week ORDER BY week DESC LIMIT 8")
+        c.execute("SELECT strftime('%Y-W%W', eingangsdatum) as week, COUNT(*) as count FROM antraege GROUP BY week ORDER BY week DESC LIMIT 8")
         return [{"week": r["week"], "count": r["count"]} for r in c.fetchall()]
