@@ -55,7 +55,7 @@ st.markdown("""
 
 # --- Session State ---
 if "analyzer" not in st.session_state:
-    ollama_url = db.get_setting("ollama_url", "http://localhost:11434")
+    ollama_url = db.get_setting("ollama_url", os.getenv("OLLAMA_HOST", "http://localhost:11434"))
     model = db.get_setting("ollama_model", "llama3.1:8b")
     temp = float(db.get_setting("ollama_temperature", "0.2"))
     tokens = int(db.get_setting("ollama_max_tokens", "4096"))
@@ -358,7 +358,7 @@ elif PAGES[page] == "einstellungen":
     st.subheader("\U0001f916 KI-Konfiguration")
     c1, c2 = st.columns(2)
     with c1:
-        ollama_url = st.text_input("Ollama Server", value=db.get_setting("ollama_url", "http://localhost:11434"))
+        ollama_url = st.text_input("Ollama Server", value=db.get_setting("ollama_url", os.getenv("OLLAMA_HOST", "http://localhost:11434")))
         model = st.text_input("Aktives Modell", value=db.get_setting("ollama_model", "llama3.1:8b"))
         fallback = st.text_input("Fallback-Modell", value=db.get_setting("ollama_fallback", "mistral:7b"))
     with c2:

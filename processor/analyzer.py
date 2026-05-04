@@ -6,7 +6,7 @@ from datetime import datetime
 
 
 class BauAnalyzer:
-    def __init__(self, ollama_url="http://localhost:11434", model="llama3",
+    def __init__(self, ollama_url=None, model="llama3",
                  temperature=0.3, max_tokens=2048):
         self.ollama_url = ollama_url.rstrip("/")
         self.model = model

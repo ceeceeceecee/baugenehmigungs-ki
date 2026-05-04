@@ -126,7 +126,7 @@ class DatabaseManager:
                   json.dumps(docs, ensure_ascii=False), datum, datum))
 
         defaults = {
-            "ollama_url": "http://localhost:11434", "ollama_model": "llama3.1:8b",
+            "ollama_url": os.getenv("OLLAMA_HOST", "http://localhost:11434"), "ollama_model": "llama3.1:8b",
             "ollama_fallback": "mistral:7b", "ollama_temperature": "0.2",
             "ollama_max_tokens": "4096", "sprache": "Deutsch",
             "behoerde": "Stadtverwaltung Musterhausen", "bauamt": "Bauordnungsamt",
